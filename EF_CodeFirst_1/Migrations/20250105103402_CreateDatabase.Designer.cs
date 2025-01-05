@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EF_CodeFirst_1.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250104122606_CreateDatabase")]
+    [Migration("20250105103402_CreateDatabase")]
     partial class CreateDatabase
     {
         /// <inheritdoc />
@@ -31,6 +31,10 @@ namespace EF_CodeFirst_1.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BrandName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()

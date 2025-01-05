@@ -62,9 +62,11 @@ namespace EF_CodeFirst_1
             * DataContext.cs altında DbSet<> komutuyla tablo olmasını istediğimiz classları tanımladık.
             * Migration alarak projenin database krokisini çıkardık
                 * Proje -> Open In Terminal -> dotnet ef migrations add CreateDatabase
-                * 
+                * Tools -> Package Manager Console m -> Add-Migration CreateDatabase
+                
             * Migration database aktararak database oluşturuldu.
                 *  Proje -> Open In Terminal -> dotnet ef database update
+                *  Tools -> Package Manager Console m -> Update-Database
              */
 
             Category category = new Category();

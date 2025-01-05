@@ -17,5 +17,7 @@ namespace EF_CodeFirst_1.ORM.Entities
         //Entity Framework paketini yüklediğinizde Id,id,ID,iD, vb.. tanımlarına direk olarak Primary Key ve Identity özelliklerini atar.
         public int Id { get; set; }
         public string Name { get; set; }
+        public string BrandName { get; set; }
+
     }
 }
