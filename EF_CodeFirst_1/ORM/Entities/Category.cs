@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace EF_CodeFirst_1.ORM.Entities
 {
+    [Table("Kategoriler")]
     internal class Category
     {
         //[Key]//PK
@@ -16,8 +17,20 @@ namespace EF_CodeFirst_1.ORM.Entities
 
         //Entity Framework paketini yüklediğinizde Id,id,ID,iD, vb.. tanımlarına direk olarak Primary Key ve Identity özelliklerini atar.
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string BrandName { get; set; }
 
+
+        // *** Attribute : nesne niteliklerini özelleştirmek için(sql kuralları) kullanılır. Üzerine yazıldığı niteliği etkiler.
+
+        //[Required] //Not Null özelliği verir. Yazmasanızda default olarak zaten bu özellik atanır.
+        //? : nullable özelliği verir.
+        [StringLength(30)]
+        public string? Name { get; set; }
+
+        public List<Product> products { get; set; }
+
+        public Category()
+        {
+            products = new List<Product>();
+        }
     }
 }

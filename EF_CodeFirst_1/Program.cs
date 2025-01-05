@@ -1,4 +1,5 @@
-﻿using EF_CodeFirst_1.ORM.Entities;
+﻿using EF_CodeFirst_1.ORM.Context;
+using EF_CodeFirst_1.ORM.Entities;
 
 namespace EF_CodeFirst_1
 {
@@ -69,20 +70,33 @@ namespace EF_CodeFirst_1
                 *  Tools -> Package Manager Console m -> Update-Database
              */
 
-            Category category = new Category();
-            category.Name = "Giyim";
-            category.Id = 1;
 
+
+            /* *** EF DATABASE DATA MANUPÜLASYON İŞLEMLERİ - CRUD - DML */
+
+            DataContext db = new DataContext();
+
+            // category = new Category();
+            //category.Name = "Giyim";
+
+            //db.Categories.Add(category);
+
+            //db.SaveChanges(); //Entity değişikliklerinin hepsini database aktar.
 
             Category category2 = new Category();
-            category2.Name = "Giyim";
-            category2.Id = 2;
+            category2.Name = "Elektronik";
 
-            List<Category> categories = new List<Category>();
+            Product p = new Product()
+            {
+                Name = "Laptop",
+                Price = 1000,
+                Stock = 100
+            };
+            //category2.products = new List<Product>();
+            category2.products.Add(p);
 
-            categories.Add(category);
-            categories.Add(category2);
-
+            db.Categories.Add(category2);
+            db.SaveChanges();
         }
     }
 }
